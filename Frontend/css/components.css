@@ -1,0 +1,587 @@
+/* ============================================
+   COMPONENTS.CSS - Material 3 Components
+   ============================================ */
+
+/* === Buttons === */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: var(--md-label-large);
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--md-shape-full);
+    cursor: pointer;
+    transition: all var(--md-duration-short4) var(--md-easing-standard);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn .material-icons-round {
+    font-size: 18px;
+}
+
+/* Filled Button */
+.btn-filled {
+    background: var(--md-primary);
+    color: var(--md-on-primary);
+    box-shadow: var(--md-elevation-1);
+}
+
+.btn-filled:hover {
+    box-shadow: var(--md-elevation-2);
+    transform: translateY(-1px);
+}
+
+.btn-filled:active {
+    transform: translateY(0);
+    box-shadow: var(--md-elevation-1);
+}
+
+/* Tonal Button */
+.btn-tonal {
+    background: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+}
+
+.btn-tonal:hover {
+    background: var(--md-primary-container);
+    filter: brightness(0.95);
+}
+
+[data-theme="dark"] .btn-tonal:hover {
+    filter: brightness(1.1);
+}
+
+/* Outlined Button */
+.btn-outlined {
+    background: transparent;
+    color: var(--md-primary);
+    border: 1px solid var(--md-outline);
+}
+
+.btn-outlined:hover {
+    background: var(--md-primary);
+    color: var(--md-on-primary);
+    border-color: var(--md-primary);
+}
+
+/* Text Button */
+.btn-text {
+    background: transparent;
+    color: var(--md-primary);
+    padding: 12px 16px;
+}
+
+.btn-text:hover {
+    background: var(--md-primary-container);
+}
+
+/* Icon Button */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    color: var(--md-on-surface-variant);
+    border: none;
+    border-radius: var(--md-shape-full);
+    cursor: pointer;
+    transition: all var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.btn-icon:hover {
+    background: var(--md-surface-container-highest);
+    color: var(--md-on-surface);
+}
+
+.btn-icon .material-icons-round {
+    font-size: 24px;
+}
+
+/* Button States */
+.btn:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--md-primary);
+    outline-offset: 2px;
+}
+
+/* Button Ripple */
+.btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple var(--md-duration-long2) var(--md-easing-standard);
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* === Cards === */
+.card {
+    background: var(--md-surface);
+    border-radius: var(--md-shape-xl);
+    box-shadow: var(--md-elevation-1);
+    overflow: hidden;
+    transition: all var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+.card:hover {
+    box-shadow: var(--md-elevation-2);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--md-outline-variant);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-primary);
+    border-radius: var(--md-shape-lg);
+    color: white;
+    flex-shrink: 0;
+}
+
+.card-icon.success {
+    background: var(--md-success);
+}
+
+.card-icon .material-icons-round {
+    font-size: 24px;
+}
+
+.card-title-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-title {
+    font-size: var(--md-title-large);
+    font-weight: 600;
+    color: var(--md-on-surface);
+    margin-bottom: 2px;
+}
+
+.card-subtitle {
+    font-size: var(--md-body-small);
+    color: var(--md-on-surface-variant);
+}
+
+.card-body {
+    padding: var(--space-lg);
+}
+
+.card-footer {
+    padding: var(--space-md) var(--space-lg);
+    background: var(--md-surface-container);
+    border-top: 1px solid var(--md-outline-variant);
+    margin-top: 20px;
+}
+
+/* === Chips === */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: var(--md-label-medium);
+    font-weight: 500;
+    border-radius: var(--md-shape-sm);
+    background: var(--md-surface-container-high);
+    color: var(--md-on-surface);
+    transition: all var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.chip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.chip-cyst {
+    background: rgba(33, 150, 243, 0.15);
+    color: #2196f3;
+}
+
+.chip-cyst .chip-dot { background: #2196f3; }
+
+.chip-normal {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+}
+
+.chip-normal .chip-dot { background: #4caf50; }
+
+.chip-stone {
+    background: rgba(255, 152, 0, 0.15);
+    color: #ff9800;
+}
+
+.chip-stone .chip-dot { background: #ff9800; }
+
+.chip-tumor {
+    background: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+}
+
+.chip-tumor .chip-dot { background: #f44336; }
+
+/* === Theme Switch === */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: var(--md-shape-full);
+    background: var(--md-surface-container);
+    transition: background var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.theme-switch:hover {
+    background: var(--md-surface-container-high);
+}
+
+.theme-switch .material-icons-round {
+    font-size: 18px;
+    transition: all var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+.theme-switch .sun-icon {
+    color: var(--md-warning);
+}
+
+.theme-switch .moon-icon {
+    color: var(--md-outline);
+}
+
+[data-theme="dark"] .theme-switch .sun-icon {
+    color: var(--md-outline);
+}
+
+[data-theme="dark"] .theme-switch .moon-icon {
+    color: var(--md-tertiary);
+}
+
+.switch-track {
+    width: 36px;
+    height: 20px;
+    background: var(--md-outline);
+    border-radius: var(--md-shape-full);
+    position: relative;
+    transition: background var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.switch-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: var(--md-surface);
+    border-radius: 50%;
+    transition: transform var(--md-duration-medium2) var(--md-easing-emphasized);
+    box-shadow: var(--md-elevation-1);
+}
+
+[data-theme="dark"] .switch-track {
+    background: var(--md-primary);
+}
+
+[data-theme="dark"] .switch-thumb {
+    transform: translateX(16px);
+    background: var(--md-on-primary);
+}
+
+/* === Modal === */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: var(--md-shape-xl);
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform var(--md-duration-medium2) var(--md-easing-emphasized);
+}
+
+.modal-overlay.visible .modal {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--md-outline-variant);
+}
+
+.modal-header h3 {
+    font-size: var(--md-title-large);
+    font-weight: 600;
+    color: var(--md-on-surface);
+}
+
+.modal-body {
+    padding: var(--space-lg);
+    overflow-y: auto;
+    max-height: calc(90vh - 140px);
+}
+
+/* === Toast === */
+.toast-container {
+    position: fixed;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    z-index: 1100;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--md-inverse-surface);
+    color: var(--md-inverse-on-surface);
+    border-radius: var(--md-shape-lg);
+    box-shadow: var(--md-elevation-3);
+    pointer-events: auto;
+    animation: toastIn var(--md-duration-medium2) var(--md-easing-emphasized);
+}
+
+.toast.toast-out {
+    animation: toastOut var(--md-duration-short4) var(--md-easing-standard) forwards;
+}
+
+.toast .material-icons-round {
+    font-size: 20px;
+}
+
+.toast-success .material-icons-round { color: var(--md-success); }
+.toast-error .material-icons-round { color: var(--md-error); }
+.toast-warning .material-icons-round { color: var(--md-warning); }
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toastOut {
+    to {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.9);
+    }
+}
+
+/* === Accordion === */
+.accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--md-surface-container);
+    border: none;
+    border-radius: var(--md-shape-lg);
+    cursor: pointer;
+    transition: all var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.accordion-trigger:hover {
+    background: var(--md-surface-container-high);
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--md-title-small);
+    font-weight: 500;
+    color: var(--md-on-surface);
+}
+
+.accordion-header .material-icons-round {
+    font-size: 20px;
+    color: var(--md-primary);
+}
+
+.accordion-icon {
+    font-size: 24px;
+    color: var(--md-on-surface-variant);
+    transition: transform var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.accordion-trigger.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+.accordion-content.open {
+    max-height: 1000px;
+}
+
+/* === Loader === */
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.loader span {
+    font-size: var(--md-body-medium);
+    font-weight: 500;
+    color: white;
+}
+
+.loader-ring {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === Probability Bar === */
+.prob-item {
+    margin-bottom: var(--space-md);
+}
+
+.prob-item:last-child {
+    margin-bottom: 0;
+}
+
+.prob-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.prob-label {
+    font-size: var(--md-body-medium);
+    font-weight: 500;
+    color: var(--md-on-surface);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.prob-label::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--md-outline);
+}
+
+.prob-item[data-class="Cyst"] .prob-label::before { background: #2196f3; }
+.prob-item[data-class="Normal"] .prob-label::before { background: #4caf50; }
+.prob-item[data-class="Stone"] .prob-label::before { background: #ff9800; }
+.prob-item[data-class="Tumor"] .prob-label::before { background: #f44336; }
+
+.prob-value {
+    font-size: var(--md-body-small);
+    font-weight: 600;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    color: var(--md-on-surface-variant);
+}
+
+.prob-bar {
+    height: 8px;
+    background: var(--md-surface-container-highest);
+    border-radius: var(--md-shape-full);
+    overflow: hidden;
+}
+
+.prob-fill {
+    height: 100%;
+    border-radius: var(--md-shape-full);
+    background: var(--md-outline);
+    transition: width var(--md-duration-long2) var(--md-easing-emphasized);
+}
+
+.prob-item[data-class="Cyst"] .prob-fill { background: #2196f3; }
+.prob-item[data-class="Normal"] .prob-fill { background: #4caf50; }
+.prob-item[data-class="Stone"] .prob-fill { background: #ff9800; }
+.prob-item[data-class="Tumor"] .prob-fill { background: #f44336; }
+
+.prob-item.highlight .prob-fill {
+    background: var(--md-primary);
+}
+
+.prob-item.highlight .prob-label {
+    color: var(--md-primary);
+    font-weight: 600;
+}

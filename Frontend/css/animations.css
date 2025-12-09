@@ -1,0 +1,467 @@
+/* ============================================
+   ANIMATIONS.CSS - Material 3 Motion System
+   ============================================ */
+
+/* === Background Gradient Orbs === */
+.bg-gradient-orbs {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: float 20s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 600px;
+    height: 600px;
+    background: var(--md-primary);
+    top: -200px;
+    right: -200px;
+    opacity: 0.15;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--md-tertiary);
+    bottom: -100px;
+    left: -100px;
+    opacity: 0.12;
+    animation-delay: -7s;
+}
+
+.orb-3 {
+    width: 300px;
+    height: 300px;
+    background: var(--md-secondary);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.08;
+    animation-delay: -14s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+        transform: translate(-30px, -20px) scale(1.02);
+    }
+}
+
+/* === Entrance Animations === */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* === Exit Animations === */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+/* === Emphasis Animations === */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+/* === Loading Animations === */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+/* === Icon Ring Animation === */
+@keyframes ringPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.upload-icon-ring {
+    position: absolute;
+    inset: -8px;
+    border: 2px solid var(--md-primary);
+    border-radius: 50%;
+    animation: ringPulse 2s ease-in-out infinite;
+}
+
+/* === Stagger Animation Utility === */
+.stagger-item {
+    opacity: 0;
+    animation: fadeInUp var(--md-duration-medium2) var(--md-easing-emphasized) forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0ms; }
+.stagger-item:nth-child(2) { animation-delay: 50ms; }
+.stagger-item:nth-child(3) { animation-delay: 100ms; }
+.stagger-item:nth-child(4) { animation-delay: 150ms; }
+.stagger-item:nth-child(5) { animation-delay: 200ms; }
+.stagger-item:nth-child(6) { animation-delay: 250ms; }
+.stagger-item:nth-child(7) { animation-delay: 300ms; }
+.stagger-item:nth-child(8) { animation-delay: 350ms; }
+
+/* === Card Animations === */
+.card {
+    animation: fadeInUp var(--md-duration-medium4) var(--md-easing-emphasized);
+}
+
+.upload-card {
+    animation-delay: 0ms;
+}
+
+.results-card {
+    animation: fadeInRight var(--md-duration-medium4) var(--md-easing-emphasized);
+}
+
+.results-card.visible {
+    animation: scaleIn var(--md-duration-medium4) var(--md-easing-emphasized);
+}
+
+/* === Upload Zone Animations === */
+.upload-zone {
+    transition: all var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.upload-zone.drag-over {
+    transform: scale(1.02);
+    border-color: var(--md-primary);
+    background: var(--md-primary-container);
+}
+
+.upload-zone.drag-over .upload-icon-wrapper {
+    animation: bounce 0.6s ease infinite;
+}
+
+/* === Preview Animations === */
+.preview-zone {
+    animation: fadeIn var(--md-duration-medium2) var(--md-easing-standard);
+}
+
+.preview-image-container img {
+    animation: scaleIn var(--md-duration-medium2) var(--md-easing-emphasized);
+}
+
+/* === Result Animations === */
+.result-primary {
+    animation: fadeInUp var(--md-duration-medium4) var(--md-easing-emphasized);
+}
+
+.result-badge {
+    animation: pop var(--md-duration-medium4) var(--md-easing-bounce);
+    animation-delay: 200ms;
+    animation-fill-mode: backwards;
+}
+
+.probability-section {
+    animation: fadeInUp var(--md-duration-medium4) var(--md-easing-emphasized);
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+}
+
+.explanation-section {
+    animation: fadeInUp var(--md-duration-medium4) var(--md-easing-emphasized);
+    animation-delay: 200ms;
+    animation-fill-mode: backwards;
+}
+
+.heatmap-section {
+    animation: fadeInUp var(--md-duration-medium4) var(--md-easing-emphasized);
+    animation-delay: 300ms;
+    animation-fill-mode: backwards;
+}
+
+/* === Success Animation === */
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 100;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* === Hover Effects === */
+.hover-lift {
+    transition: transform var(--md-duration-short4) var(--md-easing-standard),
+                box-shadow var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--md-elevation-3);
+}
+
+.hover-scale {
+    transition: transform var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-glow {
+    transition: box-shadow var(--md-duration-short4) var(--md-easing-standard);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 137, 123, 0.3);
+}
+
+/* === Focus Animations === */
+@keyframes focusRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 137, 123, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 137, 123, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 137, 123, 0);
+    }
+}
+
+/* === Skeleton Loading === */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--md-surface-container) 25%,
+        var(--md-surface-container-high) 50%,
+        var(--md-surface-container) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--md-shape-sm);
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .orb {
+        animation: none;
+    }
+}

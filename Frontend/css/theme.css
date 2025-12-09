@@ -1,0 +1,303 @@
+/* ============================================
+   THEME.CSS - Material 3 Design Tokens
+   ============================================ */
+
+/* === CSS Custom Properties === */
+:root {
+    /* Primary Teal Palette */
+    --md-primary: #00897b;
+    --md-primary-light: #4ebaaa;
+    --md-primary-dark: #005b4f;
+    --md-on-primary: #ffffff;
+    --md-primary-container: #a7f3e9;
+    --md-on-primary-container: #002019;
+
+    /* Secondary Palette */
+    --md-secondary: #4a6572;
+    --md-secondary-light: #7793a0;
+    --md-secondary-dark: #1f3a47;
+    --md-on-secondary: #ffffff;
+    --md-secondary-container: #cce5ed;
+    --md-on-secondary-container: #051f28;
+
+    /* Tertiary / Accent */
+    --md-tertiary: #7c5bbf;
+    --md-tertiary-light: #ae8cf2;
+    --md-tertiary-dark: #4c2d8e;
+    --md-on-tertiary: #ffffff;
+    --md-tertiary-container: #eddcff;
+    --md-on-tertiary-container: #260057;
+
+    /* Error */
+    --md-error: #dc3545;
+    --md-on-error: #ffffff;
+    --md-error-container: #ffdad6;
+    --md-on-error-container: #410002;
+
+    /* Success */
+    --md-success: #198754;
+    --md-on-success: #ffffff;
+    --md-success-container: #c8f7dc;
+    --md-on-success-container: #002110;
+
+    /* Warning */
+    --md-warning: #f59e0b;
+    --md-on-warning: #ffffff;
+    --md-warning-container: #fff3cd;
+    --md-on-warning-container: #3d2800;
+
+    /* Light Theme Surfaces */
+    --md-background: #f8fafa;
+    --md-on-background: #191c1c;
+    --md-surface: #ffffff;
+    --md-on-surface: #191c1c;
+    --md-surface-dim: #d9dcdc;
+    --md-surface-bright: #f8fafa;
+    --md-surface-container-lowest: #ffffff;
+    --md-surface-container-low: #f2f4f4;
+    --md-surface-container: #eceeee;
+    --md-surface-container-high: #e6e9e9;
+    --md-surface-container-highest: #e1e3e3;
+    --md-surface-variant: #dae5e5;
+    --md-on-surface-variant: #3f4949;
+    --md-outline: #6f7979;
+    --md-outline-variant: #bec9c9;
+    --md-inverse-surface: #2d3131;
+    --md-inverse-on-surface: #eff1f1;
+
+    /* Elevation Shadows */
+    --md-elevation-0: none;
+    --md-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --md-elevation-2: 0 2px 4px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+    --md-elevation-3: 0 4px 8px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.1);
+    --md-elevation-4: 0 6px 12px rgba(0, 0, 0, 0.08), 0 10px 20px rgba(0, 0, 0, 0.12);
+    --md-elevation-5: 0 8px 16px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.14);
+
+    /* Typography Scale */
+    --md-display-large: 3.5rem;
+    --md-display-medium: 2.75rem;
+    --md-display-small: 2.25rem;
+    --md-headline-large: 2rem;
+    --md-headline-medium: 1.75rem;
+    --md-headline-small: 1.5rem;
+    --md-title-large: 1.375rem;
+    --md-title-medium: 1rem;
+    --md-title-small: 0.875rem;
+    --md-body-large: 1rem;
+    --md-body-medium: 0.875rem;
+    --md-body-small: 0.75rem;
+    --md-label-large: 0.875rem;
+    --md-label-medium: 0.75rem;
+    --md-label-small: 0.6875rem;
+
+    /* Shape */
+    --md-shape-none: 0;
+    --md-shape-xs: 4px;
+    --md-shape-sm: 8px;
+    --md-shape-md: 12px;
+    --md-shape-lg: 16px;
+    --md-shape-xl: 28px;
+    --md-shape-full: 9999px;
+
+    /* Motion */
+    --md-duration-short1: 50ms;
+    --md-duration-short2: 100ms;
+    --md-duration-short3: 150ms;
+    --md-duration-short4: 200ms;
+    --md-duration-medium1: 250ms;
+    --md-duration-medium2: 300ms;
+    --md-duration-medium3: 350ms;
+    --md-duration-medium4: 400ms;
+    --md-duration-long1: 450ms;
+    --md-duration-long2: 500ms;
+    --md-duration-long3: 550ms;
+    --md-duration-long4: 600ms;
+    --md-duration-extra-long: 800ms;
+
+    --md-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --md-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
+    --md-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+    --md-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    --md-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    --md-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    --md-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #00897b 0%, #26a69a 100%);
+    --gradient-accent: linear-gradient(135deg, #7c5bbf 0%, #9c7fe0 100%);
+    --gradient-surface: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,137,123,0.03) 100%);
+}
+
+/* === Dark Theme === */
+[data-theme="dark"] {
+    --md-primary: #4fd8c9;
+    --md-primary-light: #84ffe9;
+    --md-primary-dark: #00a599;
+    --md-on-primary: #003730;
+    --md-primary-container: #004f47;
+    --md-on-primary-container: #a7f3e9;
+
+    --md-secondary: #b3cad4;
+    --md-secondary-light: #e6f5ff;
+    --md-secondary-dark: #8299a3;
+    --md-on-secondary: #1d333d;
+    --md-secondary-container: #334a54;
+    --md-on-secondary-container: #cce5ed;
+
+    --md-tertiary: #d4bbff;
+    --md-tertiary-light: #f0e4ff;
+    --md-tertiary-dark: #a893cc;
+    --md-on-tertiary: #3d1d73;
+    --md-tertiary-container: #55398c;
+    --md-on-tertiary-container: #eddcff;
+
+    --md-error: #ffb4ab;
+    --md-on-error: #690005;
+    --md-error-container: #93000a;
+    --md-on-error-container: #ffdad6;
+
+    --md-success: #7ddc9c;
+    --md-on-success: #00391d;
+    --md-success-container: #00522b;
+    --md-on-success-container: #c8f7dc;
+
+    --md-warning: #ffd54f;
+    --md-on-warning: #3d2800;
+    --md-warning-container: #5c4000;
+    --md-on-warning-container: #fff3cd;
+
+    /* Dark Surfaces */
+    --md-background: #0f1415;
+    --md-on-background: #e0e3e3;
+    --md-surface: #161b1c;
+    --md-on-surface: #e0e3e3;
+    --md-surface-dim: #0f1415;
+    --md-surface-bright: #3b4041;
+    --md-surface-container-lowest: #0a0f0f;
+    --md-surface-container-low: #171c1d;
+    --md-surface-container: #1b2021;
+    --md-surface-container-high: #252a2b;
+    --md-surface-container-highest: #303536;
+    --md-surface-variant: #3f4949;
+    --md-on-surface-variant: #bec9c9;
+    --md-outline: #889393;
+    --md-outline-variant: #3f4949;
+    --md-inverse-surface: #e0e3e3;
+    --md-inverse-on-surface: #2d3131;
+
+    /* Dark Elevation (using surface tint) */
+    --md-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --md-elevation-2: 0 2px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+    --md-elevation-3: 0 4px 12px rgba(0, 0, 0, 0.45), 0 4px 8px rgba(0, 0, 0, 0.35);
+    --md-elevation-4: 0 6px 16px rgba(0, 0, 0, 0.5), 0 8px 12px rgba(0, 0, 0, 0.4);
+    --md-elevation-5: 0 8px 24px rgba(0, 0, 0, 0.55), 0 12px 20px rgba(0, 0, 0, 0.45);
+
+    /* Dark Glass Effect */
+    --glass-bg: rgba(22, 27, 28, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    /* Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, #004f47 0%, #00695c 100%);
+    --gradient-accent: linear-gradient(135deg, #55398c 0%, #7c5bbf 100%);
+    --gradient-surface: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(79,216,201,0.03) 100%);
+}
+
+/* === Base Reset === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--md-on-background);
+    background-color: var(--md-background);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color var(--md-duration-medium2) var(--md-easing-standard),
+                color var(--md-duration-medium2) var(--md-easing-standard);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Utility Classes === */
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* === Selection === */
+::selection {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--md-surface-container);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--md-outline);
+    border-radius: var(--md-shape-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--md-on-surface-variant);
+}

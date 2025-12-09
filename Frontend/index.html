@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NephroScan AI - Kidney CT Classifier</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫘</text></svg>">
+</head>
+<body>
+    <!-- Background Gradient Orbs -->
+    <div class="bg-gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar glass-effect">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <span class="material-icons-round">biotech</span>
+                </div>
+                <div class="brand-text">
+                    <h1>NephroScan AI</h1>
+                    <span class="brand-subtitle">Kidney CT Analysis</span>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-icon" id="info-btn" title="About">
+                    <span class="material-icons-round">info</span>
+                </button>
+                <div class="theme-switch" id="theme-switch">
+                    <span class="material-icons-round sun-icon">light_mode</span>
+                    <div class="switch-track">
+                        <div class="switch-thumb"></div>
+                    </div>
+                    <span class="material-icons-round moon-icon">dark_mode</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h2 class="hero-title">
+                        <span class="gradient-text">AI-Powered</span> Kidney CT Analysis
+                    </h2>
+                    <p class="hero-description">
+                        Upload a CT scan image to detect and classify kidney conditions using our advanced hybrid deep learning model.
+                    </p>
+                    <!-- <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Classes</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">96%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label">Models</span>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+
+            <!-- Upload & Results Grid -->
+            <div class="content-grid">
+                <!-- Upload Card -->
+                <section class="card upload-card" id="upload-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <span class="material-icons-round">cloud_upload</span>
+                        </div>
+                        <div class="card-title-group">
+                            <h3 class="card-title">Upload CT Scan</h3>
+                            <p class="card-subtitle">Drag & drop or click to browse</p>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- Upload Zone -->
+                        <div class="upload-zone" id="upload-zone">
+                            <div class="upload-zone-content">
+                                <div class="upload-icon-wrapper">
+                                    <span class="material-icons-round">add_photo_alternate</span>
+                                    <div class="upload-icon-ring"></div>
+                                </div>
+                                <p class="upload-text">Drop your CT image here</p>
+                                <p class="upload-hint">Supports JPG, PNG • Max 10MB</p>
+                                <button class="btn btn-tonal browse-btn">
+                                    <span class="material-icons-round">folder_open</span>
+                                    Browse Files
+                                </button>
+                            </div>
+                            <input type="file" id="file-input" accept="image/*" hidden>
+                        </div>
+
+                        <!-- Preview Zone -->
+                        <div class="preview-zone hidden" id="preview-zone">
+                            <div class="preview-image-container">
+                                <img id="preview-image" src="" alt="CT Scan Preview">
+                                <div class="preview-overlay" id="preview-overlay">
+                                    <div class="loader">
+                                        <div class="loader-ring"></div>
+                                        <span>Analyzing...</span>
+                                    </div>
+                                </div>
+                                <button class="btn-icon preview-close" id="preview-close" title="Remove">
+                                    <span class="material-icons-round">close</span>
+                                </button>
+                            </div>
+                            
+                            <div class="preview-info">
+                                <span class="material-icons-round">image</span>
+                                <span class="preview-filename" id="preview-filename">image.jpg</span>
+                            </div>
+
+                            <div class="preview-actions">
+                                <button class="btn btn-outlined" id="reset-btn">
+                                    <span class="material-icons-round">refresh</span>
+                                    Reset
+                                </button>
+                                <button class="btn btn-filled" id="classify-btn">
+                                    <span class="material-icons-round">psychology</span>
+                                    Analyze
+                                    <div class="btn-ripple"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supported Classes -->
+                    <div class="card-footer">
+                        <p class="footer-label">Detectable Conditions:</p>
+                        <div class="condition-chips">
+                            <span class="chip chip-cyst">
+                                <span class="chip-dot"></span>Cyst
+                            </span>
+                            <span class="chip chip-normal">
+                                <span class="chip-dot"></span>Normal
+                            </span>
+                            <span class="chip chip-stone">
+                                <span class="chip-dot"></span>Stone
+                            </span>
+                            <span class="chip chip-tumor">
+                                <span class="chip-dot"></span>Tumor
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Card -->
+                <section class="card results-card hidden" id="results-card">
+                    <div class="card-header">
+                        <div class="card-icon success">
+                            <span class="material-icons-round">analytics</span>
+                        </div>
+                        <div class="card-title-group">
+                            <h3 class="card-title">Analysis Results</h3>
+                            <p class="card-subtitle">Classification complete</p>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- Primary Result -->
+                        <div class="result-primary" id="result-primary">
+                            <div class="result-badge" id="result-badge">
+                                <span class="material-icons-round" id="result-icon">check_circle</span>
+                            </div>
+                            <div class="result-info">
+                                <span class="result-label">Detected Condition</span>
+                                <h4 class="result-class" id="result-class">Normal</h4>
+                                <div class="result-confidence">
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" id="confidence-fill"></div>
+                                    </div>
+                                    <span class="confidence-value" id="confidence-value">98.5%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Probability Distribution -->
+                        <div class="probability-section">
+                            <h5 class="section-title">
+                                <span class="material-icons-round">bar_chart</span>
+                                Probability Distribution
+                            </h5>
+                            <div class="probability-bars" id="probability-bars">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+
+                        <!-- Explanation Accordion -->
+                        <div class="explanation-section">
+                            <button class="accordion-trigger" id="explanation-trigger">
+                                <div class="accordion-header">
+                                    <span class="material-icons-round">school</span>
+                                    <span>Medical Information</span>
+                                </div>
+                                <span class="material-icons-round accordion-icon">expand_more</span>
+                            </button>
+                            <div class="accordion-content" id="explanation-content">
+                                <div class="explanation-block">
+                                    <h6>Description</h6>
+                                    <p id="explanation-desc">-</p>
+                                </div>
+                                <div class="explanation-block">
+                                    <h6>Key Characteristics</h6>
+                                    <ul class="characteristics-list" id="characteristics-list">
+                                        <!-- Dynamically populated -->
+                                    </ul>
+                                </div>
+                                <div class="recommendation-box" id="recommendation-box">
+                                    <span class="material-icons-round">medical_services</span>
+                                    <div>
+                                        <strong>Recommendation</strong>
+                                        <p id="recommendation-text">-</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Heatmap Section -->
+                        <div class="heatmap-section hidden" id="heatmap-section">
+                            <h5 class="section-title">
+                                <span class="material-icons-round">visibility</span>
+                                Model Attention (Grad-CAM)
+                            </h5>
+                            <div class="heatmap-container">
+                                <img id="heatmap-image" src="" alt="Attention Heatmap">
+                            </div>
+                            <p class="heatmap-caption">
+                                Highlighted regions indicate areas the model focused on during classification
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Disclaimer -->
+                    <!-- <div class="card-footer disclaimer">
+                        <span class="material-icons-round">warning_amber</span>
+                        <p>
+                            <strong>Disclaimer:</strong> This tool is for educational purposes only and should not replace professional medical diagnosis.
+                        </p>
+                    </div> -->
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with PyTorch • ResNet50 + DenseNet121 + VGG16 Ensemble</p>
+            <p class="footer-secondary">LY Honors Project 2025</p>
+        </footer>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="modal-overlay hidden" id="modal-overlay">
+        <div class="modal glass-effect" id="info-modal">
+            <div class="modal-header">
+                <h3>About NephroScan AI</h3>
+                <button class="btn-icon modal-close" id="modal-close">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="about-section">
+                    <h4>🎯 What It Does</h4>
+                    <p>NephroScan AI uses a hybrid deep learning model to classify kidney CT scan images into four categories: Cyst, Normal, Stone, and Tumor.</p>
+                </div>
+                <div class="about-section">
+                    <h4>🧠 The Model</h4>
+                    <p>Our ensemble combines three powerful architectures:</p>
+                    <ul>
+                        <li><strong>ResNet50</strong> - Deep residual learning</li>
+                        <li><strong>DenseNet121</strong> - Dense connections</li>
+                        <li><strong>VGG16</strong> - Classic feature extraction</li>
+                    </ul>
+                </div>
+                <div class="about-section">
+                    <h4>📊 Performance</h4>
+                    <p>Trained on 12,000+ CT images with 70/15/15 train/val/test split, achieving high accuracy across all classes.</p>
+                </div>
+                <div class="about-section">
+                    <h4>🔥 Grad-CAM</h4>
+                    <p>Gradient-weighted Class Activation Mapping visualizes which regions of the image influenced the model's decision.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
